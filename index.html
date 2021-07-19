@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Guest List</title>
+    </head>
+    <body>
+        <center>
+        <h1>Guest List Additions</h1>
+        <input id="text1" type="text"><button id="add" type="button" onclick="add()">Submit</button>
+        <h3 id="text1array"></h3>
+
+        <hr>
+
+        <h1>Guest List</h1>
+        <h3 id="text2array"></h3>
+
+        <hr>
+
+        <h1>Guest List Sorter</h1>
+        <button type="button" id="sort" onclick="sorting()">Sort</button>
+        <h3 id="sortedlist"></h3>
+
+        <hr>
+
+        <h1>Guest List Search</h1>
+        <input type="text" id="searchbox"><button id="search" type="button" onclick="search()">Search</button>
+        <h3 id="result"></h3>
+
+        </center>
+    </body>
+
+    <script>
+    var people=["Rajaraja","Chandragupta","Orville","Socrates","Aristotle"]   
+    document.getElementById("text1array").innerHTML=people; 
+    document.getElementById("text2array").innerHTML=people;  
+
+        function add(){
+            var newguest=document.getElementById("text1").value;
+            people.push(newguest); 
+            document.getElementById("text1array").innerHTML=people;    
+            document.getElementById("text2array").innerHTML=people;        
+        }
+
+        function sorting(){
+            var sorted=people.sort();
+            document.getElementById("sortedlist").innerHTML=sorted;
+        }
+
+        function search(){
+            var s=document.getElementById("searchbox").value;
+            var found=0;
+            var j;
+            for(j=0; j<people.length; j++);
+            {
+                if(s==people[j]){
+                    found=found+1;
+                }
+            }
+            document.getElementById("result").innerHTML="name found"+found+"time/s";
+            console.log("name found"+found+"time/s");
+        }
+
+    </script>
+x
+</html>
